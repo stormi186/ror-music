@@ -1,0 +1,8 @@
+<% if model.errors.any? %>
+  <div class="alert alert-danger alert-dismissable fade in">
+  	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    	<% model.errors.full_messages.each do |error| %>
+      <p><%= error %></p>
+    <% end %>
+  </div>
+<% end %>

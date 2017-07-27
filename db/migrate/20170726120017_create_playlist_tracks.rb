@@ -1,4 +1,4 @@
-class PlaylistTracks < ActiveRecord::Migration[5.1]
+class CreatePlaylistTracks < ActiveRecord::Migration[5.1]
   def change
   	create_table :playlist_tracks do |t|
   	  t.references :playlist, index: true, foreign_key: true

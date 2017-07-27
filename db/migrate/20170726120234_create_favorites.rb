@@ -1,4 +1,4 @@
-class Favorites < ActiveRecord::Migration[5.1]
+class CreateFavorites < ActiveRecord::Migration[5.1]
   def change
   	create_table :favorites do |t|
   	  t.references :user, index: true, foreign_key: true

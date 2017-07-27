@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-7">
+    <h1>Albums <%= link_to 'Create new', new_album_path, class: 'btn btn-success' %></h1>
+    <%= count_for @albums, 'Total:' %>
+    <hr>
+
+    <% unless flash[:notice].blank? %>
+      <div class="alert alert-success">
+        <p><%= flash[:notice] %></p>
+      </div>
+    <% end %>
+
+    <h3>Album details</h3>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Year</th>
+          <th>Artist</th>
+          <th>Genre</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @albums %>
+      </tbody>
+    </table>
+  </div>
+</div>

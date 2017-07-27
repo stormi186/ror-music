@@ -2,9 +2,10 @@ class User < ApplicationRecord
 
   ROLE_USER = 0
   ROLE_ADMIN = 1
+  ROLE_SUPERADMIN = 2
 
   has_many :playlists, dependent: :destroy
-  has_many :tracks, through: :favorites
+  has_many :favorite_tracks, through: :favorites, source: :track
 
   before_save { self.email = email.downcase }
   validates :name, presence: true, length: { maximum: 50 }
@@ -17,5 +18,9 @@ class User < ApplicationRecord
 
   def admin?
     role == ROLE_ADMIN
+  end
+
+  def superadmin?
+  	role == ROLE_SUPERADMIN
   end
 end

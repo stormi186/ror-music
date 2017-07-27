@@ -1,0 +1,19 @@
+<%= form_for @album do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name, class: 'form-control' %>
+  <%= error_for :name, @album.errors %>
+  <br>
+  <%= form.label :year, 'Relase year' %>
+  <%= form.text_area :year, class: 'form-control' %>
+  <%= error_for :year, @album.errors %>
+  <br>
+  <%= form.label :artist_id %>
+  <%= form.collection_select :artist_id, Artist.all, :id, :name, { prompt: 'Choose artist' }, class: 'form-control' %>
+  <%= error_for :artist, @album.errors %>
+  <br>
+  <%= form.label :genre_id %>
+  <%= form.collection_select :genre_id, Genre.all, :id, :name, { prompt: 'Choose genre' }, class: 'form-control' %>
+  <%= error_for :genre, @album.errors %>
+  <br>
+  <%= form.submit params[:action] == 'new' ? 'Save' : 'Update', class: 'btn btn-block btn-primary' %>
+<% end %>

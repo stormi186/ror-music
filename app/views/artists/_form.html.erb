@@ -1,0 +1,7 @@
+<%= form_for @artist do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name, class: 'form-control' %>
+  <%= error_for :name, @artist.errors %>
+  <br>
+  <%= form.submit params[:action] == 'new' ? 'Save' : 'Update', class: 'btn btn-block btn-primary' %>
+<% end %>
