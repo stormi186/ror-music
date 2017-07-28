@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root "home#index"
+  root 'home#index'
+  get '/signup', to: 'users#new'
 
   namespace :admin do
     resource :dashboard, only: [:show]
@@ -19,6 +20,9 @@ Rails.application.routes.draw do
   resources :artist_tracks
   resources :playlist_tracks
 
-  resource :session, only: [:new, :create, :destroy]
+  #resource :session, only: [:new, :create, :destroy]
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 
 end
