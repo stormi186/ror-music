@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170801144019) do
+ActiveRecord::Schema.define(version: 20170801151407) do
 
   create_table "albums", force: :cascade do |t|
     t.string "name", null: false
-    t.string "cover"
+    t.string "cover", default: "https://upload.wikimedia.org/wikipedia/commons/b/b9/No_Cover.jpg"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "year"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20170801144019) do
 
   create_table "artists", force: :cascade do |t|
     t.string "name", null: false
-    t.string "picture"
+    t.string "picture", default: "https://dictionary.onmusic.org/assets/images/no_image.jpg"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"

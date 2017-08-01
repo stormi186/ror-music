@@ -3,6 +3,10 @@
   <%= form.text_field :name, class: 'form-control' %>
   <%= error_for :name, @album.errors %>
   <br>
+  <%= form.label :cover, 'Cover link' %>
+  <%= form.text_area :cover, class: 'form-control' %>
+  <%= error_for :cover, @album.errors %>
+  <br>
   <%= form.label :year, 'Relase year' %>
   <%= form.text_area :year, class: 'form-control' %>
   <%= error_for :year, @album.errors %>
