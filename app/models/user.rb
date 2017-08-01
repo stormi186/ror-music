@@ -5,6 +5,10 @@ class User < ApplicationRecord
   ROLE_ADMIN = 1
   ROLE_SUPERADMIN = 2
 
+  has_many :tracks
+  has_many :albums
+  has_many :genres
+  has_many :artists
   has_many :playlists, dependent: :destroy
   has_many :favorite_tracks, through: :favorites, source: :track
 

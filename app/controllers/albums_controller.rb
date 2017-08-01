@@ -25,7 +25,7 @@ class AlbumsController < ApplicationController
 
   def update
     if @album.update(album_params)
-      redirect_to album_path
+      redirect_to albums_path
     else
       render :edit
     end

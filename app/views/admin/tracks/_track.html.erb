@@ -1,0 +1,18 @@
+<tr>
+  <td><%= link_to track.name, admin_track_path(track) %></td>
+  <td><%= track.duration %></td>
+  <td><%= track.genre.name %></td>
+  <td><%= track.artist.name %></td>
+  <td><%= track.album.name %></td>
+  <td>
+  <div class="btn-group">
+  <% if track.user_id == current_user.id %>
+    <%= link_to 'Edit', edit_admin_track_path(track), class: 'btn btn-sm btn-primary' %>
+    <%= link_to 'Delete', admin_track_path(track), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-sm btn-danger' %>
+    <% else %>
+    <%= link_to 'Edit', edit_admin_track_path(track), class: 'btn btn-sm btn-primary disabled' %>
+    <%= link_to 'Delete', admin_track_path(track), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-sm btn-danger disabled' %>
+    <% end %>
+    </div>
+  </td>
+</tr>

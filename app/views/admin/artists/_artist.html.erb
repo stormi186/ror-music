@@ -1,0 +1,16 @@
+<tr>
+  <td><%= link_to artist.name, admin_artist_path(artist) %></td>
+  <td>
+  <div class="btn-group">
+    <%= link_to 'Edit', edit_admin_artist_path(artist), class: 'btn btn-sm btn-primary' %>
+    <% if artist.user_id == current_user.id %>
+    <%= link_to 'Delete', admin_artist_path(artist), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-sm btn-danger' %>
+    <%= link_to 'Delete', admin_artist_path(artist), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-sm btn-danger' %>
+    </div>
+    <% else %>
+    <%= link_to 'Delete', admin_artist_path(artist), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-sm btn-danger disabled' %>
+        <%= link_to 'Delete', admin_artist_path(artist), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-sm btn-danger disabled' %>
+    </div>
+    <% end %>
+  </td>
+</tr>

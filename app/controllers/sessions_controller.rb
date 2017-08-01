@@ -10,7 +10,11 @@ class SessionsController < ApplicationController
       flash[:notice] = 'Logged in successfully!'
       log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_to root_path
+      if current_user.admin?
+      	redirect_to admin_dashboard_path
+      else
+      	redirect_to root_path
+   	  end
     else
       flash[:error] = 'Incorrect username or password!'
       render :new

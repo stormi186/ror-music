@@ -11,6 +11,7 @@ class ArtistsController < ApplicationController
 
   def create
     @artist = Artist.new(artist_params)
+    @artist.user_id = current_user.id
 
     if @artist.save
       flash[:notice] = 'Artist created successfully.'
@@ -35,9 +36,13 @@ class ArtistsController < ApplicationController
   end
 
   def destroy
-    @artist.destroy
-    flash[:notice] = 'Artist deleted successfully!'
-    redirect_to artists_path
+  	if @artist.user_id = current_user.id
+    	@artist.destroy
+   	 flash[:notice] = 'Artist deleted successfully!'
+    	redirect_to artists_path
+  	else
+  	flash[:notice] = 'Not authorized'
+  	end
   end
 
   private

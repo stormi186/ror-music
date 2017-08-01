@@ -5,7 +5,18 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resource :dashboard, only: [:show]
-    resources :products
+    resources :tracks
+    resources :artists
+    resources :genres
+    resources :albums
+  end
+
+  namespace :superadmin do
+    resource :dashboard, only: [:show]
+    resources :tracks
+    resources :albums
+    resources :genres
+    resources :artists
   end
 
   resources :users, only: [:new, :create]

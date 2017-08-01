@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170728115757) do
+ActiveRecord::Schema.define(version: 20170801095904) do
 
   create_table "albums", force: :cascade do |t|
     t.string "name", null: false
@@ -20,8 +20,10 @@ ActiveRecord::Schema.define(version: 20170728115757) do
     t.integer "year"
     t.integer "artist_id"
     t.integer "genre_id"
+    t.integer "user_id"
     t.index ["artist_id"], name: "index_albums_on_artist_id"
     t.index ["genre_id"], name: "index_albums_on_genre_id"
+    t.index ["user_id"], name: "index_albums_on_user_id"
   end
 
   create_table "artists", force: :cascade do |t|
@@ -29,6 +31,8 @@ ActiveRecord::Schema.define(version: 20170728115757) do
     t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_artists_on_user_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -45,6 +49,8 @@ ActiveRecord::Schema.define(version: 20170728115757) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_genres_on_user_id"
   end
 
   create_table "playlist_tracks", force: :cascade do |t|
@@ -72,9 +78,11 @@ ActiveRecord::Schema.define(version: 20170728115757) do
     t.integer "genre_id"
     t.integer "album_id"
     t.integer "artist_id"
+    t.integer "user_id"
     t.index ["album_id"], name: "index_tracks_on_album_id"
     t.index ["artist_id"], name: "index_tracks_on_artist_id"
     t.index ["genre_id"], name: "index_tracks_on_genre_id"
+    t.index ["user_id"], name: "index_tracks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
