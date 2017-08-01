@@ -6,8 +6,15 @@
   <td><%= track.album.name %></td>
   <td>
   <div class="btn-group">
-  		<%= link_to "favorite",   favorites_path(@track, type: "favorite"), method: :put %>
-  		<%= link_to "unfavorite", favorites_path(@track, type: "unfavorite"), method: :put %>
+<%- unless current_user.favorite_tracks.exists?(id: track.id) -%>
+<%= link_to favorite_tracks_path(track_id: track), method: :post, class: 'btn btn-sm btn-primary' do %>
+<i class="glyphicon glyphicon-heart-empty"></i>&nbsp;
+<% end %>
+<%- else -%>
+<%= link_to favorite_track_path(track), method: :delete, class: 'btn btn-sm btn-primary' do %>
+<i class="glyphicon glyphicon-heart"></i>&nbsp;
+<% end %>
+<%- end -%>
     <%= link_to 'Edit', edit_track_path(track), class: 'btn btn-sm btn-primary' %>
     <%= link_to 'Delete', track_path(track), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-sm btn-danger' %>
     </div>

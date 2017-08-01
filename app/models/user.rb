@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :genres
   has_many :artists
   has_many :playlists, dependent: :destroy
+  has_many :favorites
   has_many :favorite_tracks, through: :favorites, source: :track
 
   before_save { self.email = email.downcase }

@@ -15,7 +15,7 @@ class Superadmin::GenresController < Superadmin::BaseController
 
     if @genre.save
       flash[:notice] = 'Genre created successfully.'
-      redirect_to [:superadmin, @genre]
+      redirect_to superadmin_genres_path
     else
       render :new
     end

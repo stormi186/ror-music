@@ -12,6 +12,7 @@ class Admin::TracksController < Admin::BaseController
   def create
     @track = Track.new(track_params)
     @track.user_id = current_user.id
+    @track.genre_id = @track.album.genre_id
 
     if @track.save
       flash[:notice] = 'Track created successfully.'

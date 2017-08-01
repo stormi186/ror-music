@@ -15,7 +15,7 @@ class Superadmin::AlbumsController < Superadmin::BaseController
 
     if @album.save
       flash[:notice] = 'Album created successfully.'
-      redirect_to [:superadmin, @album]
+      redirect_to superadmin_albums_path
     else
       render :new
     end

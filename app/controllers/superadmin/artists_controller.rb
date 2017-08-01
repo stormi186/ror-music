@@ -1,4 +1,4 @@
-class Superdmin::ArtistsController < Superadmin::BaseController
+class Superadmin::ArtistsController < Superadmin::BaseController
 	before_action :find_artist, { only: [:edit, :update, :show, :destroy] }
 
 	def index
@@ -15,7 +15,7 @@ class Superdmin::ArtistsController < Superadmin::BaseController
 
     if @artist.save
       flash[:notice] = 'Artist created successfully.'
-      redirect_to [:superadmin, @artist]
+      redirect_to superadmin_artists_path
     else
       render :new
     end
@@ -39,7 +39,7 @@ class Superdmin::ArtistsController < Superadmin::BaseController
   	if @artist.user_id = current_user.id
     	@artist.destroy
    	 flash[:notice] = 'Artist deleted successfully!'
-    	redirect_to admin_artists_path
+    	redirect_to superadmin_artists_path
   	else
   	flash[:notice] = 'Not authorized'
   	end
