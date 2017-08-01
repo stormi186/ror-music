@@ -15,8 +15,10 @@
 <i class="glyphicon glyphicon-heart"></i>&nbsp;
 <% end %>
 <%- end -%>
-    <%= link_to 'Edit', edit_track_path(track), class: 'btn btn-sm btn-primary' %>
-    <%= link_to 'Delete', track_path(track), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-sm btn-danger' %>
+<%= link_to track.youtubelink, class: 'btn btn-sm btn-primary', target: :_blank do %>
+<i class="glyphicon glyphicon-play"></i>&nbsp;
+<% end %>
     </div>
   </td>
 </tr>
+

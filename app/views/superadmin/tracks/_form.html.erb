@@ -15,5 +15,9 @@
   <%= form.collection_select :album_id, Album.all, :id, :name, { prompt: 'Choose album' }, class: 'form-control' %>
   <%= error_for :album, @track.errors %>
   <br>
+  <%= form.label :youtubelink, 'Youtube link' %>
+  <%= form.text_area :youtubelink, class: 'form-control' %>
+  <%= error_for :youtubelink, @track.errors %>
+  <br>
   <%= form.submit params[:action] == 'new' ? 'Save' : 'Update', class: 'btn btn-block btn-primary' %>
 <% end %>

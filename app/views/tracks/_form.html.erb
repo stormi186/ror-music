@@ -7,10 +7,6 @@
   <%= form.text_area :duration, class: 'form-control' %>
   <%= error_for :duration, @track.errors %>
   <br>
-  <%= form.label :genre_id %>
-  <%= form.collection_select :genre_id, Genre.all, :id, :name, { prompt: 'Choose genre' }, class: 'form-control' %>
-  <%= error_for :genre, @track.errors %>
-  <br>
   <%= form.label :artist_id %>
   <%= form.collection_select :artist_id, Artist.all, :id, :name, { prompt: 'Choose artist' }, class: 'form-control' %>
   <%= error_for :artist, @track.errors %>
@@ -18,6 +14,10 @@
   <%= form.label :album_id %>
   <%= form.collection_select :album_id, Album.all, :id, :name, { prompt: 'Choose album' }, class: 'form-control' %>
   <%= error_for :album, @track.errors %>
+  <br>
+  <%= form.label :youtubelink, 'Youtube link' %>
+  <%= form.text_area :youtubelink, class: 'form-control' %>
+  <%= error_for :youtubelink, @track.errors %>
   <br>
   <%= form.submit params[:action] == 'new' ? 'Save' : 'Update', class: 'btn btn-block btn-primary' %>
 <% end %>
