@@ -1,8 +1,8 @@
-class PlaylistTracksController < ApplicationController
-	before_action :set_track
+class TrackPlaylistsController < ApplicationController
+	before_action :set_track_and_playlist
 
   def create
-    if Playlist_Track.create(track: @track, playlist: @playlist)
+    if PlaylistTrack.create(track: @track, playlist: @playlist)
       redirect_to tracks_path, notice: 'Track has been added'
     else
       redirect_to tracks_path, alert: 'Something went wrong...*sad panda*'
@@ -10,13 +10,14 @@ class PlaylistTracksController < ApplicationController
   end
   
   def destroy
-    Favorite.where(track_id: @track.id, playlist_id: @playlist_id).first.destroy
+    PlaylistTrack.where(track_id: @track.id, playlist_id: @playlist.id).first.destroy
     redirect_to tracks_path, notice: 'Track is no longer in playlist'
   end
   
   private
   
-  def set_track
+  def set_track_and_playlist
     @track = Track.find(params[:track_id] || params[:id])
+    @playlist = Playlist.find(params[:playlist_id] || params[:id])
   end
 end

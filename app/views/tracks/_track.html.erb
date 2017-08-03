@@ -18,7 +18,34 @@
 <%= link_to track.youtubelink, class: 'btn btn-sm btn-primary', target: :_blank do %>
 <i class="glyphicon glyphicon-play"></i>&nbsp;
 <% end %>
+<% unless current_user.playlists.first.nil? %>
+<%= link_to track_playlists_path(track_id: track.id, playlist_id: current_user.playlists.first.id), method: :post, class: 'btn btn-sm btn-primary' do %>
+<i class="glyphicon glyphicon-heart-empty"></i>&nbsp;
+<% end %>
+<% end %>
+<!-- Button trigger modal -->
+<a data-toggle="modal" href="#myModal" class="btn btn btn-danger">Add to playlist:</a>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Choose Playlist</h4>
+      </div>
+      <div class="modal-body">
+          <%= form_for PlaylistTrack.new, url: track_playlists_path do |form| %>
+  	<%= form.collection_select :playlist_id, Playlist.all, :id, :name, { prompt: 'Choose Playlist' }, class: 'form-control' %>
+  	<br>
+  	<%= form.submit 'Save', method: :post, class: 'btn btn-block btn-primary' %>
+  	<% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
     </div>
   </td>
 </tr>
-

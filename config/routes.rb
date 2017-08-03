@@ -24,12 +24,9 @@ Rails.application.routes.draw do
   resources :artists
   resources :favorite_tracks, only: [:create, :destroy]
   resources :playlists
-  resources :tracks do
-  	put :favorite, on: :member
-  end
+  resources :tracks
   resources :genres
-  resources :artist_tracks
-  resources :playlist_tracks
+  resources :track_playlists, only: [:create, :destroy]
 
   #resource :session, only: [:new, :create, :destroy]
   get '/login', to: 'sessions#new'
