@@ -2,7 +2,7 @@ class PlaylistsController < ApplicationController
 	before_action :find_playlist, { only: [:edit, :update, :show, :destroy] }
 
 	def index
-    @playlists = Playlist.all
+    @playlists = Playlist.where(user_id: current_user.id)
   end
 
   def new
@@ -11,6 +11,7 @@ class PlaylistsController < ApplicationController
 
   def create
     @playlist = Playlist.new(playlist_params)
+    @playlist.user_id = current_user.id
 
     if @playlist.save
       flash[:notice] = 'Playlist created successfully.'
