@@ -17,7 +17,7 @@ class TrackPlaylistsController < ApplicationController
   private
   
   def set_track_and_playlist
-    @track = Track.find(params[:track_id] || params[:id])
-    @playlist = Playlist.find(params[:playlist_id] || params[:id])
+    @track = Track.find(params[:trackId])
+    @playlist = Playlist.find(params[:playlist_track][:playlist_id] || params[:id])
   end
 end

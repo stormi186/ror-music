@@ -52,19 +52,11 @@ class TracksController < ApplicationController
     @track = Track.find(params[:id])
   end
 
-  def favorite
-    type = params[:type]
-    if type == "favorite"
-      current_user.favorites << @track
-      redirect_to :back, notice: 'You favorited #{@track.name}'
-
-    elsif type == "unfavorite"
-      current_user.favorites.delete(@track)
-      redirect_to :back, notice: 'Unfavorited #{@track.name}'
-
-    else
-      redirect_to :back, notice: 'Nothing happened.'
-    end
-  end
+  def add_to_playlist
+		respond_to do |format|
+			format.html
+			format.js
+		end
+	end
 end
 
