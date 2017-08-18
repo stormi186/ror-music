@@ -67,5 +67,12 @@ class TracksController < ApplicationController
 			format.js
 		end
 	end
+
+	def get_drop_down_options
+  	val = params[:track_id]
+  	#Use val to find records
+  	options = Album.collect{|x| "'#{x.id}' : '#{x.label}'"}    
+  	render :text => "{#{options.join(",")}}" 
+	end
 end
 

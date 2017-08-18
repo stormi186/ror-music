@@ -65,12 +65,14 @@
       <thead>
         <tr>
           <th>Track</th>
+          <th>artist id</th>
         </tr>
       </thead>
       <tbody>
         <% @top_tracks.each do |track| %>
   <tr>
     <td><%= track.name %></td>
+    <td><%= track.artist_id %></td>
   </tr>
 <% end %>
 </table>

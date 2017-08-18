@@ -34,6 +34,11 @@ class ArtistsController < ApplicationController
   end
 
   def show
+  	@top_tracks = Favorite.joins("LEFT OUTER JOIN tracks ON favorites.track_id = tracks.id").select("favorites.*,tracks.name as name,tracks.artist_id as artist_id").where("tracks.artist_id = #{@artist.id}").group(:track_id).order('COUNT(tracks.id) DESC')
+  .limit(10)
+  	if @top_tracks.nil?
+  		@top_tracks = Track.where(artist_id: @artist.id)
+  	end
   end
 
   def destroy
