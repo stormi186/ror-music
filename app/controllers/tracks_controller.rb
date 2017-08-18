@@ -3,12 +3,8 @@ class TracksController < ApplicationController
 	before_action :logged_in_user
 	
 	def index
-  	if (params[:term].nil?)
   		@tracks = Track.paginate(:page => params[:page], :per_page => 5).order(created_at: :desc)
 			#@tracks = Track.order(created_at: :desc)
-		else
-  		@tracks = Track.search(params[:term])
-  	end
   	  	@top_tracks = Favorite.joins("LEFT OUTER JOIN tracks ON favorites.track_id = tracks.id").select("favorites.*,tracks.name as name").group(:track_id).order('COUNT(tracks.id) DESC')
   .limit(10)
   	@latest_albums = Album.last(5)

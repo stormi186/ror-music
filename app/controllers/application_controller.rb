@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
     current_user.role == 2
   end
 
-  helper_method :admin?
+  helper_method :superadmin?
 
   protected
 
