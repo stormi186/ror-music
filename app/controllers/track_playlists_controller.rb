@@ -1,5 +1,6 @@
 class TrackPlaylistsController < ApplicationController
 	before_action :set_track_and_playlist
+	before_action :logged_in_user
 
   def create
     if PlaylistTrack.create(track: @track, playlist: @playlist)

@@ -2,8 +2,9 @@
   <td><%= link_to track.name, track_path(track) %></td>
   <td><%= track.duration %></td>
   <td><%= track.genre.name %></td>
-  <td><%= track.artist.name %></td>
-  <td><%= track.album.name %></td>
+  <td><%= link_to track.artist.name, artist_path(track.artist) %></td>
+  <td><%= link_to track.album.name, album_path(track.album) %></td>
+  <td><%= track.album.year %></td>
   <td>
   <div class="btn-group">
 <%- unless current_user.favorite_tracks.exists?(id: track.id) -%>
@@ -30,12 +31,11 @@
 
           <%= form_for PlaylistTrack.new, remote: true, url: track_playlists_path, method: :post, id: 'myForm' do |form| %>
           <input id="trackId" name="trackId" type="hidden" />
-  	<%= form.collection_select :playlist_id, Playlist.all, :id, :name, { prompt: 'Choose Playlist' }, class: 'form-control' %>
+  	<%= form.collection_select :playlist_id, Playlist.where(user_id: current_user.id), :id, :name, { prompt: 'Choose Playlist' }, class: 'form-control' %>
   	<br>
   	<%= form.submit 'Save', method: :post, class: 'btn btn-block btn-primary' %>
   	<% end %>
         <p>some content</p>
-        <input type="text" name="trackId" id="trackId" value=""/>
     </div>
 </div>
 <% unless current_user.playlists.first.nil? %>

@@ -5,7 +5,7 @@
 <div class="modal-body">
           <%= form_for PlaylistTrack.new, remote: true, url: track_playlists_path, method: :post, id: 'myForm' do |form| %>
           <%= form.hidden :track_id, value: track.id %>
-  	<%= form.collection_select :playlist_id, Playlist.all, :id, :name, { prompt: 'Choose Playlist' }, class: 'form-control' %>
+  	<%= form.collection_select :playlist_id, Playlist.where(user_id: :current_user.id), :id, :name, { prompt: 'Choose Playlist' }, class: 'form-control' %>
   	<br>
   	<%= form.submit 'Save', method: :post, class: 'btn btn-block btn-primary' %>
   	<% end %>

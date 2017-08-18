@@ -1,6 +1,7 @@
 class AlbumsController < ApplicationController
 	before_action :find_album, { only: [:edit, :update, :show, :destroy] }
-
+	before_action :logged_in_user
+	
 	def index
     @albums = Album.all
   end

@@ -1,6 +1,7 @@
 class ArtistsController < ApplicationController
 	before_action :find_artist, { only: [:edit, :update, :show, :destroy] }
-
+	before_action :logged_in_user
+	
 	def index
     @artists = Artist.all
   end

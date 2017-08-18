@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resources :albums
   resources :artists
   resources :favorite_tracks, only: [:create, :destroy]
+  resources :favorites, only: [:index, :destroy]
   resources :playlists
   resources :tracks
   resources :genres

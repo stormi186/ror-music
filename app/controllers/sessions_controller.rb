@@ -12,8 +12,10 @@ class SessionsController < ApplicationController
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       if current_user.admin?
       	redirect_to admin_dashboard_path
+      elsif current_user.superadmin?
+      	redirect_to superadmin_dashboard_path
       else
-      	redirect_to root_path
+      	redirect_to tracks_path
    	  end
     else
       flash[:error] = 'Incorrect username or password!'

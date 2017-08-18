@@ -1,4 +1,4 @@
-class Superadmin::AlbumsController < Superadmin::BaseController
+	class Superadmin::AlbumsController < Superadmin::BaseController
 	before_action :find_album, { only: [:edit, :update, :show, :destroy] }
 
 	def index

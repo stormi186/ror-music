@@ -1,6 +1,7 @@
 class GenresController < ApplicationController
 	before_action :find_genre, { only: [:edit, :update, :show, :destroy] }
-
+	before_action :logged_in_user
+	
 	def index
     @genres = Genre.all
   end
