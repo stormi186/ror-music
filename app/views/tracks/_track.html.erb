@@ -7,71 +7,39 @@
   <td><%= track.album.year %></td>
   <td>
   <div class="btn-group">
-<%- unless current_user.favorite_tracks.exists?(id: track.id) -%>
+<% unless current_user.favorite_tracks.exists?(id: track.id) %>
 <%= link_to favorite_tracks_path(track_id: track), method: :post, class: 'btn btn-sm btn-primary' do %>
 <i class="glyphicon glyphicon-heart-empty"></i>&nbsp;
 <% end %>
-<%- else -%>
+<% else %>
 <%= link_to favorite_track_path(track), method: :delete, class: 'btn btn-sm btn-primary' do %>
 <i class="glyphicon glyphicon-heart"></i>&nbsp;
 <% end %>
-<%- end -%>
+<% end %>
 <%= link_to track.youtubelink, class: 'btn btn-sm btn-primary', target: :_blank do %>
 <i class="glyphicon glyphicon-play"></i>&nbsp;
 <% end %>
-<p>Link 2</p>
-<a data-toggle="modal" data-target="#addTrackDialog" data-id="<%=track.id %>" title="Add this item" class="open-AddTrackDialog btn btn-primary" href="#addTrackDialog">test</a>
+
+<a data-toggle="modal" data-target="#addTrackDialog" data-id="<%=track.id %>" title="Add this item" class="open-AddTrackDialog btn btn-sm btn-primary" href="#addTrackDialog">test</a>
 
 <div class="modal fade" id="addTrackDialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
  <div class="modal-header">
     <button class="close" data-dismiss="modal">×</button>
-    <h3>Modal header</h3>
+    <h3>Add to playlist</h3>
   </div>
     <div class="modal-body">
-
-          <%= form_for PlaylistTrack.new, remote: true, url: track_playlists_path, method: :post, id: 'myForm' do |form| %>
-          <input id="trackId" name="trackId" type="hidden" />
+    <% if current_user.playlists.exists? %>
+			<%= form_for PlaylistTrack.new, remote: true, url: track_playlists_path, method: :post, id: 'myForm' do |form| %>
+  		<input id="trackId" name="trackId" type="hidden" />
   	<%= form.collection_select :playlist_id, Playlist.where(user_id: current_user.id), :id, :name, { prompt: 'Choose Playlist' }, class: 'form-control' %>
   	<br>
   	<%= form.submit 'Save', method: :post, class: 'btn btn-block btn-primary' %>
   	<% end %>
-        <p>some content</p>
+  	<% else %>
+  	<%= link_to "Create playlist", new_playlist_path %>
+  	<% end %>
     </div>
 </div>
-<% unless current_user.playlists.first.nil? %>
-<%= link_to track_playlists_path(track_id: track.id, playlist_id: current_user.playlists.first.id), method: :post, class: 'btn btn-sm btn-primary' do %>
-<i class="glyphicon glyphicon-heart-empty"></i>&nbsp;
-<% end %>
-<% end %>
-<%= link_to 'Add', add_to_playlist_path(track), {:remote => true, 'data-toggle' => "modal", :class => 'btn btn-primary btn-small', 'data-target' => '#myModal'} %>
-
-
-<div class="modal fade" id="modal-window" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
-
-<!-- Button trigger modal -->
-<a data-toggle="modal" href="#myModal" data-target="#myModal" class="btn btn btn-danger">Add to playlist:</a>
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Choose Playlist</h4>
-      </div>
-      <div class="modal-body">
-          <%= form_for PlaylistTrack.new, remote: true, url: track_playlists_path, method: :post, id: 'myForm' do |form| %>
-          <%= form.hidden_field :track_id, value: track.id %>
-  	<%= form.collection_select :playlist_id, Playlist.all, :id, :name, { prompt: 'Choose Playlist' }, class: 'form-control' %>
-  	<br>
-  	<%= form.submit 'Save', method: :post, class: 'btn btn-block btn-primary' %>
-  	<% end %>
-      </div>
-      <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-        <button id="myBtn", '$('#this').on('click', function() { $('#myForm').submit(); });', class="btn btn-primary">Save changes</button>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-    </div>
-  </td>
-</tr>
+</div>

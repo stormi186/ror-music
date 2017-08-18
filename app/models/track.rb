@@ -5,7 +5,8 @@ class Track < ApplicationRecord
 	belongs_to :user
 
 	has_many :artists, through: :artist_track
-	has_many :favorited_by, through: :favorites, source: :users
+	has_many :favorites, dependent: :destroy
+	has_many :favorited_by, through: :favorites, source: :user, dependent: :delete_all
 
 	validates :name, presence: true, length: { maximum: 20 }
 	validates :duration, presence: true, numericality: true

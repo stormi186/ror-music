@@ -60,19 +60,6 @@ class TracksController < ApplicationController
   def find_track
     @track = Track.find(params[:id])
   end
-
-  def add_to_playlist
-		respond_to do |format|
-			format.html
-			format.js
-		end
-	end
-
-	def get_drop_down_options
-  	val = params[:track_id]
-  	#Use val to find records
-  	options = Album.collect{|x| "'#{x.id}' : '#{x.label}'"}    
-  	render :text => "{#{options.join(",")}}" 
-	end
+  
 end
 

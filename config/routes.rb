@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'home#index'
   get '/signup', to: 'users#new'
-  get '/tracks/add_to_playlist', to: 'tracks#add_to_playlist', as: :add_to_playlist
 
   namespace :admin do
     resource :dashboard, only: [:show]
