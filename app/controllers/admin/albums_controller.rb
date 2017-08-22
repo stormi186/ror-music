@@ -15,13 +15,19 @@ class Admin::AlbumsController < Admin::BaseController
 
     if @album.save
       flash[:notice] = 'Album created successfully.'
-      redirect_to [:admin, @album]
+      redirect_to admin_albums_path
     else
       render :new
     end
   end
 
   def edit
+  	if @album.user_id == current_user.id
+  		render 'edit'
+  	else
+  		flash[:notice] = 'Unauthorized access'
+  		redirect_to admin_albums_path
+  	end
   end
 
   def update

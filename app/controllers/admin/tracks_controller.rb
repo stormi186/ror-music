@@ -16,13 +16,19 @@ class Admin::TracksController < Admin::BaseController
 
     if @track.save
       flash[:notice] = 'Track created successfully.'
-      redirect_to [:admin, @track]
+      redirect_to admin_tracks_path
     else
       render :new
     end
   end
 
   def edit
+  	if @track.user_id == current_user.id
+  		render 'edit'
+  	else
+  		flash[:notice] = 'Unauthorized access'
+  		redirect_to admin_tracks_path
+  	end
   end
 
   def update

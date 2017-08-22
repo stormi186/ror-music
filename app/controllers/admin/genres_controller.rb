@@ -15,13 +15,19 @@ class Admin::GenresController < Admin::BaseController
 
     if @genre.save
       flash[:notice] = 'Genre created successfully.'
-      redirect_to [:admin, @genre]
+      redirect_to admin_genres_path
     else
       render :new
     end
   end
 
   def edit
+  	if @genre.user_id == current_user.id
+  		render 'edit'
+  	else
+  		flash[:notice] = 'Unauthorized access'
+  		redirect_to admin_genres_path
+  	end
   end
 
   def update

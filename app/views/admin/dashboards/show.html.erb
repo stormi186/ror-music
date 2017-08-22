@@ -1,7 +1,19 @@
+<%= display_flash :notice %>
 <div class="jumbotron">
   <h1>Welcome admin!</h1>
+  <hr>
+  <h2> Number of registered users: <%= @users.count %> </h2>
+  <hr>
+  <h2> Number of tracks: <%= @tracks.count %></h2>
   <%= link_to 'Add tracks', new_admin_track_path, class: 'btn btn-danger' %>
+  <hr>
+  <h2> Number of albums: <%= @artists.count %></h2>
   <%= link_to 'Add albums', new_admin_album_path, class: 'btn btn-danger' %>
-  <%= link_to 'Add genres', new_admin_genre_path, class: 'btn btn-danger' %>
-  <%= link_to 'Add artists', new_admin_artist_path, class: 'btn btn-danger' %>
+  <hr>
+  <h2> Number of artists: <%= @artists.count %></h2>
+  <%= link_to 'Add artist', new_admin_artist_path, class: 'btn btn-danger' %>
+  <hr>
+  <h2> Number of genres: <%= @genres.count %></h2>
+  <%= link_to 'Add genre', new_admin_genre_path, class: 'btn btn-danger' %>
+  <hr>
 </div>

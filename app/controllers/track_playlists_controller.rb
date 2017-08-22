@@ -1,5 +1,6 @@
 class TrackPlaylistsController < ApplicationController
 	before_action :logged_in_user
+	before_action :authorize_for_users
 
   def create
   	@track = Track.find(params[:trackId])

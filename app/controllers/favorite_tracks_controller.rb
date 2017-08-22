@@ -1,6 +1,7 @@
 class FavoriteTracksController < ApplicationController
 	before_action :set_track
 	before_action :logged_in_user
+	before_action :authorize_for_users
 
   def create
     if Favorite.create(track: @track, user: current_user)

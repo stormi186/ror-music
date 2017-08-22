@@ -44,38 +44,3 @@
   
 </div>
 <!-- /.carousel -->
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Album</th>
-          <th>Artist</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @latest_albums.each do |album| %>
-  <tr>
-    <td><%= album.name %></td>
-    <td><%= album.artist.name %></td>
-  </tr>
-<% end %>
-</table>
-      </tbody>
-    </table>
-        <table class="table">
-      <thead>
-        <tr>
-          <th>Track</th>
-          <th>artist id</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @top_tracks.each do |track| %>
-  <tr>
-    <td><%= track.name %></td>
-    <td><%= track.artist_id %></td>
-  </tr>
-<% end %>
-</table>
-      </tbody>
-    </table>
-

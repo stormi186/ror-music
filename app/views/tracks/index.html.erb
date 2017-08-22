@@ -1,6 +1,8 @@
+<%= display_flash :notice %>
+
 <div class="row">
   <div class="col-md-7">
-    <h1> Tracks <%= link_to 'Create new', new_track_path, class: 'btn btn-success' %></h1>
+    <h1> Tracks </h1>
     <%= count_for @tracks, 'Total:' %>
     <hr>
 
@@ -63,12 +65,14 @@
       <thead>
         <tr>
           <th>Track</th>
+          <th>Artist</th>
         </tr>
       </thead>
       <tbody>
         <% @top_tracks.each do |track| %>
   <tr>
     <td><%= track.name %></td>
+    <td><%= Artist.where(artist_id: track.artist_id).name %></td>
   </tr>
 <% end %>
 </table>

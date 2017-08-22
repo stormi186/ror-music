@@ -15,13 +15,19 @@ class Admin::ArtistsController < Admin::BaseController
 
     if @artist.save
       flash[:notice] = 'Artist created successfully.'
-      redirect_to [:admin, @artist]
+      redirect_to admin_artists_path
     else
       render :new
     end
   end
 
   def edit
+  	if @artist.user_id == current_user.id
+  		render 'edit'
+  	else
+  		flash[:notice] = 'Unauthorized access'
+  		redirect_to admin_artists_path
+  	end
   end
 
   def update

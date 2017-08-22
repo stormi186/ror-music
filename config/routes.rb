@@ -20,13 +20,13 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:new, :create]
-  resources :albums
-  resources :artists
+  resources :albums, only: [:index, :show]
+  resources :artists, only: [:index, :show]
   resources :favorite_tracks, only: [:create, :destroy]
   resources :favorites, only: [:index, :destroy]
   resources :playlists
-  resources :tracks
-  resources :genres
+  resources :tracks, only: [:index, :show]
+  resources :genres, only: [:index, :show]
   resources :track_playlists, only: [:create, :destroy]
 
   #resource :session, only: [:new, :create, :destroy]

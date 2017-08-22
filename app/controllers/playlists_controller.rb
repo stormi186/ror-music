@@ -1,6 +1,7 @@
 class PlaylistsController < ApplicationController
 	before_action :find_playlist, { only: [:edit, :update, :show, :destroy] }
 	before_action :logged_in_user
+	before_action :authorize_for_users
 	
 	def index
     @playlists = Playlist.where(user_id: current_user.id)

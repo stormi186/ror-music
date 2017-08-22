@@ -1,5 +1,6 @@
 class FavoritesController < ApplicationController
 	before_action :logged_in_user
+	before_action :authorize_for_users
 
   def index
     @favorites = Favorite.where(user_id: current_user.id).paginate(:page => params[:page], :per_page => 5).order(created_at: :desc)

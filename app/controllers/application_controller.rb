@@ -32,6 +32,14 @@ class ApplicationController < ActionController::Base
     redirect_to new_session_path unless current_user
   end
 
+  def authorize_for_users
+    if current_user.admin?
+      redirect_to admin_dashboard_path
+    elsif current_user.superadmin?
+    	redirect_to superadmin_dashboard_path
+    end
+  end
+
   def authorize_for_admins
     unless current_user.admin?
       flash[:notice] = 'Unauthorized access, you shall not pass!'
