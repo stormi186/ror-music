@@ -5,11 +5,15 @@ class TrackPlaylistsController < ApplicationController
   def create
   	@track = Track.find(params[:trackId])
     @playlist = Playlist.find(params[:playlist_track][:playlist_id] || params[:id])
+    unless PlaylistTrack.find_by(track_id: @track.id, playlist_id: @playlist.id)
     if PlaylistTrack.create(track: @track, playlist: @playlist)
       redirect_to tracks_path, notice: 'Track has been added'
     else
       redirect_to tracks_path, alert: 'Something went wrong...*sad panda*'
     end
+  	else
+  		redirect_to tracks_path, notice: 'You can add track only once'
+  	end
   end
   
   def destroy

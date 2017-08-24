@@ -4,7 +4,7 @@ class PlaylistsController < ApplicationController
 	before_action :authorize_for_users
 	
 	def index
-    @playlists = Playlist.where(user_id: current_user.id)
+    @playlists = Playlist.where(user_id: current_user.id).paginate(:page => params[:page], :per_page => 5).order(created_at: :desc)
   end
 
   def new

@@ -8,6 +8,7 @@ class GenresController < ApplicationController
   end
 
   def show
+  	@tracks = Track.where(genre_id: params[:id])
   end
 
   private

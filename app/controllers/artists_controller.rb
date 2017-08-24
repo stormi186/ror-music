@@ -4,7 +4,7 @@ class ArtistsController < ApplicationController
 	before_action :authorize_for_users
 	
 	def index
-    @artists = Artist.all
+    @artists = Artist.paginate(:page => params[:page], :per_page => 5).order(created_at: :desc)
   end
 
   def show

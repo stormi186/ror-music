@@ -4,7 +4,7 @@ class TracksController < ApplicationController
 	before_action :authorize_for_users
 	
 	def index
-  		@tracks = Track.paginate(:page => params[:page], :per_page => 5).order(created_at: :desc)
+  		@tracks = Track.search(params[:term]).paginate(:page => params[:page], :per_page => 5).order(created_at: :desc)
 			#@tracks = Track.order(created_at: :desc)
   	  	@top_tracks = Favorite.joins("LEFT OUTER JOIN tracks ON favorites.track_id = tracks.id").select("favorites.*,tracks.name as name, tracks.artist_id as artist_id").group(:track_id).order('COUNT(tracks.id) DESC')
   .limit(10)

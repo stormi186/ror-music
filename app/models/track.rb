@@ -9,7 +9,7 @@ class Track < ApplicationRecord
 	has_many :favorited_by, through: :favorites, source: :user, dependent: :delete_all
 
 	validates :name, presence: true, length: { maximum: 20 }
-	validates :duration, presence: true, numericality: true
+	validates :duration, presence: true
 
 	def self.search(term)
   	if term

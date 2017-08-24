@@ -2,7 +2,7 @@ class Admin::ArtistsController < Admin::BaseController
 	before_action :find_artist, { only: [:edit, :update, :show, :destroy] }
 
 	def index
-    @artists = Artist.all
+    @artists = Artist.search(params[:term]).paginate(:page => params[:page], :per_page => 5).order(created_at: :desc)
   end
 
   def new

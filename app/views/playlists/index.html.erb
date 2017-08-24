@@ -11,7 +11,7 @@
     <% end %>
 
     <h3>Playlist details</h3>
-
+    <%= will_paginate @playlists, renderer: BootstrapPagination::Rails %>
     <table class="table table-hover">
       <thead>
         <tr>

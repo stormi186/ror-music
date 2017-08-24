@@ -4,7 +4,7 @@ class AlbumsController < ApplicationController
 	before_action :authorize_for_users
 	
 	def index
-    @albums = Album.all
+    @albums = Album.paginate(:page => params[:page], :per_page => 5).order(created_at: :desc)
   end
 
   def show
