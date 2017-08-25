@@ -12,8 +12,11 @@ class Superadmin::TracksController < Superadmin::BaseController
   def create
     @track = Track.new(track_params)
     @track.user_id = current_user.id
-    @track.genre_id = @track.album.genre_id
-
+    unless @track.album.nil? 
+    	@track.genre_id = @track.album.genre_id
+    	@track.artist_id = @track.album.artist_id
+  	end
+  	
     if @track.save
       flash[:notice] = 'Track created successfully.'
       redirect_to superadmin_tracks_path
