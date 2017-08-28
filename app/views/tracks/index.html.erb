@@ -1,7 +1,6 @@
-<div class="row">
-  <div class="col-md-8">
+<div class="section">
+  <div class="col-md-9">
     <h1> Tracks </h1>
-    <%= count_for @tracks, 'Total:' %>
     <hr>
 
     <% unless flash[:notice].blank? %>
@@ -9,42 +8,48 @@
         <p><%= flash[:notice] %></p>
       </div>
     <% end %>
-<%= will_paginate @tracks, renderer: BootstrapPagination::Rails %>
-    <table class="table table-hover">
+<div class="table-responsive-vertical tbl-header">
+     <table cellpadding="0" cellspacing="0" border="0">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Duration</th>
-          <th>Genre</th>
-          <th>Artist</th>
-          <th>Album</th>
-          <th>Year</th>
-          <th>Actions</th>
+          <th class="col-md-2">Name</th>
+          <th class="col-md-2">Length</th>
+          <th class="col-md-1">Genre</th>
+          <th class="col-md-2">Artist</th>
+          <th class="col-md-2">Album</th>
+          <th class="col-md-1">Year</th>
+          <th class="col-md-3">Actions</th>
         </tr>
       </thead>
+      </table>
+      </div>
+      <div class="tbl-content">
+    <table cellpadding="0" cellspacing="0" border="0">
       <tbody>
         <%= render @tracks %>
       </tbody>
     </table>
+    </div>
+    <%= will_paginate @tracks, renderer: BootstrapPagination::Rails %>
   </div>
-  <div class="col-md-4">
+  </div>
+  <div class="col-md-3">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
   <div class="panel panel-info">
                 <div class="panel-heading">
                     <h3 class="panel-title">
                         Latest albums</h3>
                 </div>
-  <table class="table">
-      <thead>
-        <tr>
-          <th>Album</th>
-          <th>Artist</th>
-        </tr>
-      </thead>
+  <table class="table tbl-top">
       <tbody>
         <% @latest_albums.each do |album| %>
-  <tr>
-    <td><%= album.name %></td>
-    <td><%= album.artist.name %></td>
+  	<td><img class="img-responsive" src=<%= album.cover %> alt=""></td>
+    <td><%= link_to album.name, album_path(album) %></td>
+    <td><%= link_to album.artist.name, artist_path(album.artist) %></td>
   </tr>
 <% end %>
 </tbody>
@@ -59,17 +64,11 @@
 </table>
       </tbody>
     </table>
-        <table class="table">
-      <thead>
-        <tr>
-          <th>Track</th>
-          <th>Artist</th>
-        </tr>
-      </thead>
+        <table class="table tbl-top">
       <tbody>
         <% @top_tracks.each do |track| %>
   <tr>
-    <td><%= track.name %></td>
+    <td><%= link_to track.name, track_path(track) %></td>
     <td><%= Artist.find(track.artist_id).name %></td>
   </tr>
 <% end %>

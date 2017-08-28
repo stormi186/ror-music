@@ -1,11 +1,11 @@
 <tr>
-  <td><%= link_to track.name, track_path(track) %></td>
-  <td><%= track.duration %></td>
-  <td><%= track.genre.name %></td>
-  <td><%= link_to track.artist.name, artist_path(track.artist) %></td>
-  <td><%= link_to track.album.name, album_path(track.album) %></td>
-  <td><%= track.album.year %></td>
-  <td>
+  <td class="col-md-2"><%= link_to track.name, track_path(track) %></td>
+  <td class="col-md-2"><%= track.duration %></td>
+  <td class="col-md-1"><%= track.genre.name %></td>
+  <td class="col-md-2"><%= link_to track.artist.name, artist_path(track.artist) %></td>
+  <td class="col-md-2"><%= link_to track.album.name, album_path(track.album) %></td>
+  <td class="col-md-1"><%= track.album.year %></td>
+  <td class="col-md-3">
   <div class="btn-group">
 <% unless current_user.favorite_tracks.exists?(id: track.id) %>
 <%= link_to favorite_tracks_path(track_id: track), method: :post, class: 'btn btn-sm btn-primary' do %>
@@ -20,7 +20,7 @@
 <i class="glyphicon glyphicon-play"></i>&nbsp;
 <% end %>
 
-<a data-toggle="modal" data-target="#addTrackDialog" data-id="<%=track.id %>" title="Add this item" class="open-AddTrackDialog btn btn-sm btn-primary" href="#addTrackDialog">Add to playlist:</a>
+<a data-toggle="modal" data-target="#addTrackDialog" data-id="<%=track.id %>" title="Add to playlist" class="open-AddTrackDialog btn btn-sm btn-primary" href="#addTrackDialog">+</a>
 
 <div class="modal fade" id="addTrackDialog">
 <%= render 'shared/modal' %>

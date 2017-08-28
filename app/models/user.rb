@@ -13,7 +13,8 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_tracks, through: :favorites, source: :track, dependent: :delete_all
 
-  before_save { self.email = email.downcase }
+  attr_accessor :remember_token
+  before_save { self.username = username.downcase }
   validates :username, presence: true, length: { maximum: 50 }, 
   									uniqueness: { case_sensitive: false }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -43,12 +44,12 @@ class User < ApplicationRecord
 
   # Returns true if the given token matches the digest.
   def authenticated?(remember_token)
-  	return false if remember_digest.nil?
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 
+  # Forgets a user.
   def forget
-  	update_attribute(:remember_digest, nil)
+    update_attribute(:remember_digest, nil)
   end
 
   def admin?

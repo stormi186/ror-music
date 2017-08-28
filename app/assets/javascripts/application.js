@@ -15,3 +15,18 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+
+/**
+ * Created by Kupletsky Sergey on 05.11.14.
+ *
+ * Material Design Responsive Table
+ * Tested on Win8.1 with browsers: Chrome 37, Firefox 32, Opera 25, IE 11, Safari 5.1.7
+ * You can use this table in Bootstrap (v3) projects. Material Design Responsive Table CSS-style will override basic bootstrap style.
+ * JS used only for table constructor: you don't need it in your project
+ */
+
+// '.tbl-content' consumed little space for vertical scrollbar, scrollbar width depend on browser/os/platfrom. Here calculate the scollbar width .
+$(window).on("load resize ", function() {
+  var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+  $('.tbl-header').css({'padding-right':scrollWidth});
+}).resize();
