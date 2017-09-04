@@ -1,8 +1,6 @@
 <tr>
-  <td><%= link_to album.name, album_path(album) %></td>
-  <td><%= album.year %></td>
-  <td><%= link_to album.artist.name, artist_path(album.artist) %></td>
-  <td><%= link_to album.genre.name, genre_path(album.genre) %></td>
-  <td>
-  </td>
+  <td data-title="Name"><%= link_to album.name, album_path(album) %></td>
+  <td data-title="Year"><%= album.year %></td>
+  <td data-title="Artist"><%= link_to album.artist.name, artist_path(album.artist) %></td>
+  <td data-title="Genre"><%= link_to album.genre.name, genre_path(album.genre) %></td>
 </tr>

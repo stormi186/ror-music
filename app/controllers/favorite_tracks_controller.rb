@@ -7,7 +7,7 @@ class FavoriteTracksController < ApplicationController
     if Favorite.create(track: @track, user: current_user)
       redirect_to tracks_path, notice: 'Track has been favorited'
     else
-      redirect_to tracks_path, alert: 'Something went wrong...*sad panda*'
+      redirect_to tracks_path, alert: 'Something went wrong'
     end
   end
   

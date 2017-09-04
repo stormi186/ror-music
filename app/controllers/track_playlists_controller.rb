@@ -9,7 +9,7 @@ class TrackPlaylistsController < ApplicationController
     if PlaylistTrack.create(track: @track, playlist: @playlist)
       redirect_to tracks_path, notice: 'Track has been added'
     else
-      redirect_to tracks_path, alert: 'Something went wrong...*sad panda*'
+      redirect_to tracks_path, alert: 'Something went wrong'
     end
   	else
   		redirect_to tracks_path, notice: 'You can add track only once'

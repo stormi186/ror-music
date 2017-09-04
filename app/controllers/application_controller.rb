@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+
   include SessionsHelper
 
   def current_user
@@ -42,14 +43,14 @@ class ApplicationController < ActionController::Base
 
   def authorize_for_admins
     unless current_user.admin?
-      flash[:notice] = 'Unauthorized access, you shall not pass!'
+      flash[:notice] = 'Unauthorized access'
       redirect_to root_path
     end
   end
 
   def authorize_for_superadmins
     unless current_user.superadmin?
-      flash[:notice] = 'Unauthorized access, you shall not pass!'
+      flash[:notice] = 'Unauthorized access'
       redirect_to root_path
     end
   end

@@ -1,12 +1,9 @@
 class SessionsController < ApplicationController
-  layout 'home'
-  
   def new
   end
 
   def create
     user = User.find_by(username: params[:session][:username])
-    # @user = User.where(username: params[:username]).first
 
     if user && user.authenticate(params[:session][:password])
       flash[:notice] = 'Logged in successfully!'

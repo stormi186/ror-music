@@ -3,6 +3,25 @@
     <p><strong>Name:</strong></p>
     <p><%= @artist.name %></p>
     <br>
+    <p><strong>Picture:</strong></p>
+    <p><%=image_tag(@artist.picture)%></p>
+    <br>
+    <p><strong>Albums:</strong></p>
+		<div class="table-responsive-vertical">
+      <table class="table table-hover">
+      	<thead>
+        	<tr>
+          	<th>Name</th>
+          	<th>Year</th>
+          	<th>Artist</th>
+          	<th>Genre</th>
+          	<th>Actions</th>
+      	</thead>
+      	<tbody>
+        	<%= render @artist.albums  %>
+      	</tbody>
+    	</table>
+    </div>
   </div>
 </div>
 

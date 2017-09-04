@@ -7,24 +7,19 @@
     <%= display_flash :error %>
 
     <%= form_for(:session, url: login_path) do |f| %>
-
       <%= f.label :username %>
       <%= f.text_field :username, class: 'form-control' %>
       <br>
-
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
       <br>
-
       <%= f.label :remember_me, class: "checkbox inline" do %>
       	<%= f.check_box :remember_me %>
       	<span>Remember me on this computer</span>
       	<% end %>
       <br>
-
       <%= f.submit 'Login', class: 'btn btn-block btn-success' %>
     <% end %>
-
 		<p>New user? <%= link_to "Sign up now!", signup_path %></p>
   </div>
 </div>

@@ -26,13 +26,14 @@ Rails.application.routes.draw do
   resources :albums, only: [:index, :show]
   resources :artists, only: [:index, :show]
   resources :favorite_tracks, only: [:create, :destroy]
-  resources :favorites, only: [:index, :destroy]
+  resources :favorites, only: [:index, :create, :destroy]
   resources :playlists
   resources :tracks, only: [:index, :show]
   resources :genres, only: [:index, :show]
   resources :track_playlists, only: [:create, :destroy]
+  resources :playlist_tracks, only: [:create, :destroy]
 
-  #resource :session, only: [:new, :create, :destroy]
+  resource :session, only: [:new, :create, :destroy]
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'

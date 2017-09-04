@@ -1,6 +1,5 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar-custom navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -8,27 +7,24 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-                <a class="navbar-brand" href="index.html">
-                    <img src="http://www.iconsdb.com/icons/preview/white/note-xxl.png" style="height: 25px" alt="">
-                </a>
-</a> 
-
+      <a class="navbar-brand" href="#">
+      <img src="http://www.iconsdb.com/icons/preview/white/note-xxl.png" style="height: 25px" alt="">
+      </a>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="<%= 'active' if params[:action] == 'tracks' %>"><%= link_to 'Tracks', tracks_path %></li>
-        <li class="<%= 'active' if params[:action] == 'favorites' %>"><%= link_to 'Favorites', favorites_path %></li>
-        <li class="<%= 'active' if params[:action] == 'playlists' %>"><%= link_to 'Playlists', playlists_path %></li>
-        <li class="<%= 'active' if params[:action] == 'artists' %>"><%= link_to 'Artists', artists_path %></li>
-        <li class="<%= 'active' if params[:action] == 'albums' %>"><%= link_to 'Albums', albums_path %></li>
-        <li class="<%= 'active' if params[:action] == 'genres' %>"><%= link_to 'Genres', genres_path %></li>
+        <li><%= link_to 'Tracks', tracks_path %></li>
+        <li><%= link_to 'Favorites', favorites_path %></li>
+        <li><%= link_to 'Playlists', playlists_path %></li>
+        <li><%= link_to 'Artists', artists_path %></li>
+        <li><%= link_to 'Albums', albums_path %></li>
+        <li><%= link_to 'Genres', genres_path %></li>
       </ul>
       <form class="navbar-form navbar-left">
         <%= form_tag(tracks_path, method: 'get', class: 'navbar-form navbar-right') do %>
- 			 	<%= search_field_tag 'term', nil, class: 'form-control', placeholder: 'Search'  %>
-  			<%= submit_tag "Submit", class: 'btn btn-default', :name => nil %>
+ 			 		<%= search_field_tag 'term', nil, class: 'form-control', placeholder: 'Search'  %>
+  				<%= submit_tag "Submit", class: 'btn btn-default', :name => nil %>
 				<% end %>
       </form>
       <ul class="nav navbar-nav navbar-right">
@@ -43,6 +39,6 @@
        		<li><%= link_to "Log in", login_path %></li>
         <% end %>
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
 </nav>

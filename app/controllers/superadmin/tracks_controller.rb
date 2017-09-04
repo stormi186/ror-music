@@ -2,7 +2,7 @@ class Superadmin::TracksController < Superadmin::BaseController
 	before_action :find_track, { only: [:edit, :update, :show, :destroy] }
 
 	def index
-  	@tracks = Track.search(params[:term]).paginate(:page => params[:page], :per_page => 5).order(created_at: :desc)
+  	@tracks = Track.search(params[:term]).paginate(:page => params[:page], :per_page => 10).order(created_at: :desc)
 	end
 
   def new

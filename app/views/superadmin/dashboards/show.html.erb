@@ -1,20 +1,58 @@
 <%= display_flash :notice %>
 
-<div class="jumbotron">
-  <h1>Welcome superadmin!</h1>
-  <hr>
-  <h2> Number of registered users: <%= @users.count %> </h2>
-  <hr>
-  <h2> Number of tracks: <%= @tracks.count %></h2>
-  <%= link_to 'Add track', new_superadmin_track_path, class: 'btn btn-danger' %>
-  <hr>
-  <h2> Number of albums: <%= @artists.count %></h2>
-  <%= link_to 'Add album', new_superadmin_album_path, class: 'btn btn-danger' %>
-  <hr>
-  <h2> Number of artists: <%= @artists.count %></h2>
-  <%= link_to 'Add artist', new_superadmin_artist_path, class: 'btn btn-danger' %>
-  <hr>
-  <h2> Number of genres: <%= @genres.count %></h2>
-  <%= link_to 'Add genre', new_superadmin_genre_path, class: 'btn btn-danger' %>
-  <hr>
+<div class="section">
+	<div class="col-md-4">
+		<h1>Welcome superadmin!</h1>
+	</div>
+  <div class="col-md-4">
+  	<div class="table-responsive-vertical tbl-top">
+  		<table class="table table-hover">
+      	<thead>
+       	 <h3>Number of registered users: <%= @users.count %></h3>
+      	</thead>
+			</table>
+		</div>
+  </div>
+  <div class="col-md-4">
+    <div class="table-responsive-vertical tbl-top">
+  		<table class="table table-hover">
+      	<thead>
+       	 <h3>Number of tracks: <%= @tracks.count %></h3>
+      	</thead>
+			</table>
+		  <%= link_to 'Add track', new_superadmin_track_path, class: "btn btn-lg btn-success btn-block btn-resp" %>
+		</div>
+  </div>
+</div>
+<div class="section">
+  <div class="col-md-4">
+    <div class="table-responsive-vertical tbl-top">
+  		<table class="table table-hover">
+      	<thead>
+       	 <h3>Number of albums: <%= @albums.count %></h3>
+      	</thead>
+			</table>
+			<%= link_to 'Add album', new_superadmin_album_path, class: "btn btn-lg btn-success btn-block btn-resp" %>
+		</div>
+  </div>
+  <div class="col-md-4">
+    <div class="table-responsive-vertical tbl-top">
+  		<table class="table table-hover">
+      	<thead>
+       	 <h3>Number of artists: <%= @artists.count %></h3>
+      	</thead>
+			</table>
+			<%= link_to 'Add artist', new_superadmin_artist_path, class: "btn btn-lg btn-success btn-block btn-resp" %>
+		</div>
+  </div>
+  <div class="col-md-4">
+    <div class="table-responsive-vertical tbl-top">
+  		<table class="table table-hover">
+      	<thead>
+       	 <h3>Number of genres: <%= @genres.count %></h3>
+      	</thead>
+			</table>
+			<%= link_to 'Add genre', new_superadmin_genre_path, class: "btn btn-lg btn-success btn-block btn-resp" %>
+		</div>
+  </div>
 </div>

@@ -8,73 +8,60 @@
         <p><%= flash[:notice] %></p>
       </div>
     <% end %>
-<div class="table-responsive-vertical tbl-header">
-     <table cellpadding="0" cellspacing="0" border="0">
-      <thead>
-        <tr>
-          <th class="col-md-2">Name</th>
-          <th class="col-md-2">Length</th>
-          <th class="col-md-1">Genre</th>
-          <th class="col-md-2">Artist</th>
-          <th class="col-md-2">Album</th>
-          <th class="col-md-1">Year</th>
-          <th class="col-md-3">Actions</th>
-        </tr>
-      </thead>
+    
+		<div class="table-responsive-vertical">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Length</th>
+            <th>Genre</th>
+            <th>Artist</th>
+            <th>Album</th>
+            <th>Year</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render @tracks %>
+        </tbody>
       </table>
-      </div>
-      <div class="tbl-content">
-    <table cellpadding="0" cellspacing="0" border="0">
-      <tbody>
-        <%= render @tracks %>
-      </tbody>
-    </table>
     </div>
     <%= will_paginate @tracks, renderer: BootstrapPagination::Rails %>
   </div>
-  </div>
-  <div class="col-md-3">
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        Latest albums</h3>
-                </div>
-  <table class="table tbl-top">
-      <tbody>
-        <% @latest_albums.each do |album| %>
-  	<td><img class="img-responsive" src=<%= album.cover %> alt=""></td>
-    <td><%= link_to album.name, album_path(album) %></td>
-    <td><%= link_to album.artist.name, artist_path(album.artist) %></td>
-  </tr>
-<% end %>
-</tbody>
-</table>
-</div>
-
-  <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        Popular tracks</h3>
-                </div>
-</table>
-      </tbody>
-    </table>
-        <table class="table tbl-top">
-      <tbody>
-        <% @top_tracks.each do |track| %>
-  <tr>
-    <td><%= link_to track.name, track_path(track) %></td>
-    <td><%= Artist.find(track.artist_id).name %></td>
-  </tr>
-<% end %>
-</table>
-      </tbody>
-    </table>
-    </div>
-  </div>
+  <div class="col-md-3" style="padding-top: 11px;">
+  	<div class="table-responsive-vertical tbl-top">
+  		<table class="table table-hover">
+      	<thead>
+       	 <h3>Latest albums</h3>
+         <br>
+      	</thead>
+  			<tbody>
+        	<% @latest_albums.each do |album| %>
+        	  <tr>
+  						<td data-title="Cover"><img class="img-responsive" src=<%= album.cover %> alt=""></td>
+    					<td data-title="Name"><%= link_to album.name, album_path(album) %></td>
+   			 			<td data-title="Artist"><%= link_to album.artist.name, artist_path(album.artist) %></td>
+  					</tr>
+  				<% end %>
+				</tbody>
+			</table>
+		</div>
+  	<div class="table-responsive-vertical tbl-top">
+  		<table class="table table-hover">
+      	<thead>
+       	 <h3>Popular tracks</h3>
+         <br>
+      	</thead>
+      	<tbody>
+        	<% @top_tracks.each do |track| %>
+  					<tr>
+    					<td data-title="Name"><%= link_to track.name, track_path(track) %></td>
+    					<td data-title="Artist"><%= link_to Artist.find(track.artist_id).name, artist_path(Artist.find(track.artist_id)) %></td>
+  					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>

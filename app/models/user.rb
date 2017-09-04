@@ -5,13 +5,13 @@ class User < ApplicationRecord
   ROLE_ADMIN = 1
   ROLE_SUPERADMIN = 2
 
-  has_many :tracks
-  has_many :albums
-  has_many :genres
-  has_many :artists
+  has_many :tracks, dependent: :destroy
+  has_many :albums, dependent: :destroy
+  has_many :genres, dependent: :destroy
+  has_many :artists, dependent: :destroy
   has_many :playlists, dependent: :destroy
-  has_many :favorites, dependent: :destroy
-  has_many :favorite_tracks, through: :favorites, source: :track, dependent: :delete_all
+  has_many :favorites
+  has_many :favorite_tracks, through: :favorites, source: :track, dependent: :destroy
 
   attr_accessor :remember_token
   before_save { self.username = username.downcase }

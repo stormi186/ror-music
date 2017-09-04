@@ -1,9 +1,9 @@
 <tr>
-  <td><%= link_to genre.name, superadmin_genre_path(genre) %></td>
-  <td>
-  <div class="btn-group">
-    <%= link_to 'Edit', edit_superadmin_genre_path(genre), class: 'btn btn-sm btn-primary' %>
-    <%= link_to 'Delete', superadmin_genre_path(genre), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-sm btn-danger' %>
+  <td data-title="Name"><%= link_to genre.name, superadmin_genre_path(genre) %></td>
+  <td data-title="Actions">
+  	<div class="btn-group">
+    	<%= link_to 'Edit', edit_superadmin_genre_path(genre), class: 'btn btn-sm btn-primary' %>
+    	<%= link_to 'Delete', superadmin_genre_path(genre), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-sm btn-danger' %>
     </div>
   </td>
 </tr>

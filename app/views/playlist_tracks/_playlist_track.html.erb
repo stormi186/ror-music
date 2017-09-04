@@ -1,16 +1,18 @@
 <tr>
-  <td><%= link_to playlist_track.track.name, track_path(playlist_track.track) %></td>
-  <td><%= playlist_track.track.duration %></td>
-  <td><%= playlist_track.track.genre.name %></td>
-  <td><%= link_to playlist_track.track.artist.name, artist_path(playlist_track.track.artist) %></td>
-  <td><%= link_to playlist_track.track.album.name, album_path(playlist_track.track.album) %></td>
-  <td><%= playlist_track.track.album.year %></td>
-  <td>
-  <div class="btn-group">
-<%= link_to playlist_track.track.youtubelink, class: 'btn btn-sm btn-primary', target: :_blank do %>
-<i class="glyphicon glyphicon-play"></i>&nbsp;
-<% end %>
-<%= link_to track_playlist_path(track_id: playlist_track.track.id, playlist_id: playlist_track.playlist.id), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-sm btn-danger' do %>
-<i class="glyphicon glyphicon-remove"></i>&nbsp;
-<% end %>
+  <td data-title="Name"><%= link_to playlist_track.track.name, track_path(playlist_track.track) %></td>
+  <td data-title="Duration"><%= playlist_track.track.duration %></td>
+  <td data-title="Genre"><%= playlist_track.track.genre.name %></td>
+  <td data-title="Artist"><%= link_to playlist_track.track.artist.name, artist_path(playlist_track.track.artist) %></td>
+  <td data-title="Album"><%= link_to playlist_track.track.album.name, album_path(playlist_track.track.album) %></td>
+  <td data-title="Year"><%= playlist_track.track.album.year %></td>
+  <td data-title="Actions">
+  	<div class="btn-group">
+			<%= link_to playlist_track.track.youtubelink, class: 'btn btn-sm btn-primary', target: :_blank do %>
+				<i class="glyphicon glyphicon-play"></i>&nbsp;
+			<% end %>
+			<%= link_to track_playlist_path(track_id: playlist_track.track.id, playlist_id: playlist_track.playlist.id), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-sm btn-danger' do %>
+				<i class="glyphicon glyphicon-remove"></i>&nbsp;
+			<% end %>
+    </div>
+  </td>
 </div>

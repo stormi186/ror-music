@@ -1,13 +1,14 @@
 <tr>
-  <td><%= link_to track.name, superadmin_track_path(track) %></td>
-  <td><%= track.duration %></td>
-  <td><%= track.genre.name %></td>
-  <td><%= track.artist.name %></td>
-  <td><%= track.album.name %></td>
-  <td>
-  <div class="btn-group">
-    <%= link_to 'Edit', edit_superadmin_track_path(track), class: 'btn btn-sm btn-primary' %>
-    <%= link_to 'Delete', superadmin_track_path(track), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-sm btn-danger' %>
+  <td data-title="Name"><%= link_to track.name, superadmin_track_path(track) %></td>
+  <td data-title="Duration"><%= track.duration %></td>
+  <td data-title="Genre"><%= track.genre.name %></td>
+  <td data-title="Artist"><%= track.artist.name %></td>
+  <td data-title="Album"><%= track.album.name %></td>
+  <td data-title="Year"><%= track.album.year %></td>
+  <td data-title="Actions">
+  	<div class="btn-group">
+    	<%= link_to 'Edit', edit_superadmin_track_path(track), class: 'btn btn-sm btn-primary' %>
+    	<%= link_to 'Delete', superadmin_track_path(track), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-sm btn-danger' %>
     </div>
   </td>
 </tr>

@@ -1,8 +1,34 @@
-<div class="row">
-  <div class="col-md-6">
-    <p><strong>Name:</strong></p>
+<div class="section">
+  <div class="col-md-9">
+    <p><strong>Genre:</strong></p>
     <p><%= @genre.name %></p>
     <br>
+    <h1> Tracks </h1>
+    <hr>
+
+    <% unless flash[:notice].blank? %>
+      <div class="alert alert-success">
+        <p><%= flash[:notice] %></p>
+      </div>
+    <% end %>
+
+	<div class="table-responsive-vertical">
+		<table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Duration</th>
+          <th>Genre</th>
+          <th>Artist</th>
+          <th>Album</th>
+          <th>Year</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @genre.tracks %>
+      </tbody>
+    </table>
   </div>
 </div>
 

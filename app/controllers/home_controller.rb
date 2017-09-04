@@ -1,6 +1,4 @@
 class HomeController < ApplicationController
-layout 'home'
-
   def index
   	if current_user.nil?
   		render "index"  

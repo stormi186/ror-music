@@ -1,27 +1,28 @@
 <tr>
-  <td class="col-md-2"><%= link_to track.name, track_path(track) %></td>
-  <td class="col-md-2"><%= track.duration %></td>
-  <td class="col-md-1"><%= track.genre.name %></td>
-  <td class="col-md-2"><%= link_to track.artist.name, artist_path(track.artist) %></td>
-  <td class="col-md-2"><%= link_to track.album.name, album_path(track.album) %></td>
-  <td class="col-md-1"><%= track.album.year %></td>
-  <td class="col-md-3">
-  <div class="btn-group">
-<% unless current_user.favorite_tracks.exists?(id: track.id) %>
-<%= link_to favorite_tracks_path(track_id: track), method: :post, class: 'btn btn-sm btn-primary' do %>
-<i class="glyphicon glyphicon-heart-empty"></i>&nbsp;
-<% end %>
-<% else %>
-<%= link_to favorite_track_path(track), method: :delete, class: 'btn btn-sm btn-primary' do %>
-<i class="glyphicon glyphicon-heart"></i>&nbsp;
-<% end %>
-<% end %>
-<%= link_to track.youtubelink, class: 'btn btn-sm btn-primary', target: :_blank do %>
-<i class="glyphicon glyphicon-play"></i>&nbsp;
-<% end %>
-
-<a data-toggle="modal" data-target="#addTrackDialog" data-id="<%=track.id %>" title="Add to playlist" class="open-AddTrackDialog btn btn-sm btn-primary" href="#addTrackDialog">+</a>
-
-<div class="modal fade" id="addTrackDialog">
-<%= render 'shared/modal' %>
-</div>
+  <td data-title="Name"><%= link_to track.name, track_path(track) %></td>
+  <td data-title="Duration"><%= track.duration %></td>
+  <td data-title="Genre"><%= track.genre.name %></td>
+  <td data-title="Artist"><%= link_to track.artist.name, artist_path(track.artist) %></td>
+  <td data-title="Album"><%= link_to track.album.name, album_path(track.album) %></td>
+  <td data-title="Year"><%= track.album.year %></td>
+  <td data-title="Actions">
+  	<div class="btn-group">
+			<% unless current_user.favorite_tracks.exists?(id: track.id) %>
+				<%= link_to favorite_tracks_path(track_id: track), method: :post, class: 'btn btn-sm btn-primary' do %>
+					<i class="glyphicon glyphicon-heart-empty"></i>&nbsp;
+				<% end %>
+			<% else %>
+				<%= link_to favorite_track_path(track), method: :delete, class: 'btn btn-sm btn-primary' do %>
+						<i class="glyphicon glyphicon-heart"></i>&nbsp;
+				<% end %>
+			<% end %>
+			<%= link_to track.youtubelink, class: 'btn btn-sm btn-primary', target: :_blank do %>
+				<i class="glyphicon glyphicon-play"></i>&nbsp;
+			<% end %>
+			<a data-toggle="modal" data-target="#addTrackDialog" data-id="<%=track.id %>" title="Add to playlist" class="open-AddTrackDialog btn btn-sm btn-primary" href="#addTrackDialog">+</a>
+			<div class="modal fade" id="addTrackDialog">
+				<%= render 'shared/modal' %>
+			</div>
+		</div>
+	</td>
+</tr>
