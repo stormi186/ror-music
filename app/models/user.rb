@@ -1,8 +1,6 @@
 class User < ApplicationRecord
-	attr_accessor :remember_token, :activation_token
+	attr_accessor :remember_token
   before_save   :downcase_username
-  before_create :create_activation_digest
-
 
   ROLE_USER = 0
   ROLE_ADMIN = 1
@@ -64,14 +62,7 @@ class User < ApplicationRecord
 
   private
 
-    # Converts username to all lower-case.
-    def downcase_username
-      self.username = username.downcase
-    end
-
-    # Creates and assigns the activation token and digest.
-    def create_activation_digest
-      self.activation_token  = User.new_token
-      self.activation_digest = User.digest(activation_token)
-    end  
+  def downcase_username
+    self.username = username.downcase
+  end 
 end
