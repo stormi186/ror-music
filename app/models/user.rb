@@ -1,5 +1,8 @@
 class User < ApplicationRecord
-	attr_accessor :remember_token
+	attr_accessor :remember_token, :activation_token
+  before_save   :downcase_username
+  before_create :create_activation_digest
+
 
   ROLE_USER = 0
   ROLE_ADMIN = 1
@@ -10,11 +13,9 @@ class User < ApplicationRecord
   has_many :genres, dependent: :destroy
   has_many :artists, dependent: :destroy
   has_many :playlists, dependent: :destroy
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :favorite_tracks, through: :favorites, source: :track, dependent: :destroy
 
-  attr_accessor :remember_token
-  before_save { self.username = username.downcase }
   validates :username, presence: true, length: { maximum: 50 }, 
   									uniqueness: { case_sensitive: false }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -44,6 +45,7 @@ class User < ApplicationRecord
 
   # Returns true if the given token matches the digest.
   def authenticated?(remember_token)
+  	return false if remember_digest.nil?
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 
@@ -59,4 +61,17 @@ class User < ApplicationRecord
   def superadmin?
   	role == ROLE_SUPERADMIN
   end
+
+  private
+
+    # Converts username to all lower-case.
+    def downcase_username
+      self.username = username.downcase
+    end
+
+    # Creates and assigns the activation token and digest.
+    def create_activation_digest
+      self.activation_token  = User.new_token
+      self.activation_digest = User.digest(activation_token)
+    end  
 end

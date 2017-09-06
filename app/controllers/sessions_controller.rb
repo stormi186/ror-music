@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
       	redirect_to tracks_path
    	  end
     else
-      flash[:error] = 'Incorrect username or password!'
+      flash.now[:error] = 'Incorrect username or password!'
       render :new
     end
   end

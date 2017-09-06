@@ -6,12 +6,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(username: 'user1', email: 'user1@gmail.com', password: 'password1')
-User.create(username: 'user2', email: 'user2@gmail.com', password: 'password2')
-User.create(username: 'user3', email: 'user3@gmail.com', password: 'password3')
-User.create(username: 'admin1', email: 'admin1@gmail.com', password: 'adminadmin', role: 1)
-User.create(username: 'admin2', email: 'admin2@gmail.com', password: 'adminadmin', role: 1)
-User.create(username: 'superadmin', email: 'superadmin@gmail.com', password: 'superadmin', role: 2)
+User.create(username: 'user1', email: 'user1@gmail.com', 
+						password: 'password1')
+User.create(username: 'user2', email: 'user2@gmail.com', 
+						password: 'password2')
+User.create(username: 'user3', email: 'user3@gmail.com', 
+						password: 'password3')
+User.create(username: 'admin1', email: 'admin1@gmail.com', 
+						password: 'adminadmin', role: 1)
+User.create(username: 'admin2', email: 'admin2@gmail.com', 
+						password: 'adminadmin', role: 1)
+User.create(username: 'superadmin', email: 'superadmin@gmail.com', 
+						password: 'superadmin', role: 2)
 
 Genre.create(name: 'Rock', user_id: 6)
 Genre.create(name: 'Pop', user_id: 6)
@@ -72,11 +78,4 @@ Track.create(name: 'Firework', youtubelink: 'https://www.youtube.com/watch?v=QGJ
 Track.create(name: 'E.T.', youtubelink: 'https://www.youtube.com/watch?v=t5Sd5c4o9UM', duration: '5:09', genre_id: 2, artist_id: 5, album_id: 5, user_id: 6)
 Track.create(name: 'Last Friday Night', youtubelink: 'https://www.youtube.com/watch?v=KlyXNRrsk4A', duration: '8:11', genre_id: 2, artist_id: 5, album_id: 5, user_id: 6)
 Track.create(name: 'The One That Got Away', youtubelink: 'https://www.youtube.com/watch?v=Ahha3Cqe_fk', duration: '4:51', genre_id: 2, artist_id: 5, album_id: 5, user_id: 6)
-
-
-
-
-
-
-
 
