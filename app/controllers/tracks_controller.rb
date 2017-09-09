@@ -6,7 +6,7 @@ class TracksController < ApplicationController
   	@tracks = Track.search(params[:term]).paginate(:page => params[:page], :per_page => 10).order(created_at: :desc)
   	#@top_tracks = Favorite.joins("LEFT OUTER JOIN tracks ON favorites.track_id = tracks.id").select("favorites.*,tracks.name as name, tracks.artist_id as artist_id").group(:track_id).order('COUNT(tracks.id) DESC').limit(10)
   	#@top_tracks = Favorite.joins("LEFT OUTER JOIN tracks ON favorites.track_id = tracks.id").select("favorites.*,tracks.name as name, tracks.artist_id as artist_id").select("track_id").group("track_id").order('COUNT(tracks.id) DESC').limit(10)
-    @top_tracks = Favorite.includes(:track_id).select("track_id").group("track_id").order('COUNT(tracks.id) DESC').limit(10)
+    @top_tracks = Favorite.joins(:tracks).select('track_id, name, artist_id').group('track_id').order('COUNT(tracks.id) DESC').limit(10)
   	@latest_albums = Album.order('created_at DESC').last(5)
 	end
 
