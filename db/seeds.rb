@@ -40,7 +40,7 @@ Artist.create(name: 'Calvin Harris', picture: 'https://a4-images.myspacecdn.com/
 Album.create(name: '18 Months', cover: 'http://d3cprjxvoejtmm.cloudfront.net/images/2012/09/disco-calvin-harris-300x300.jpg', year: 2012, artist_id: 2, genre_id: 3, user_id: 6)
 Track.create(name: 'Bounce', youtubelink: 'https://www.youtube.com/watch?v=ooZwmeUfuXg', duration: '3:51', genre_id: 3, artist_id: 2, album_id: 2, user_id: 6)
 Track.create(name: 'Feel So Close', youtubelink: 'https://www.youtube.com/watch?v=dGghkjpNCQ8', duration: '4:07', genre_id: 3, artist_id: 2, album_id: 2, user_id: 6)
-Track.create(name: 'We Found Love', youtubelink: 'https://www.youtube.com/watch?v=tg00YEETFzg', duration: '4:36', genre_id: 3, artist_id: 2, album_id: 2, user_id: 6)
+#Track.create(name: 'We Found Love', youtubelink: 'https://www.youtube.com/watch?v=tg00YEETFzg', duration: '4:36', genre_id: 3, artist_id: 2, album_id: 2, user_id: 6)
 #Track.create(name: 'Lets Go', youtubelink: 'https://www.youtube.com/watch?v=LYZ6gXWZfZM', duration: '4:07', genre_id: 3, artist_id: 2, album_id: 2, user_id: 6)
 Track.create(name: 'We will Be Coming Back', youtubelink: 'https://www.youtube.com/watch?v=kPC_evpbwDM', duration: '4:08', genre_id: 3, artist_id: 2, album_id: 2, user_id: 6)
 #Track.create(name: 'Sweet Nothing', youtubelink: 'https://www.youtube.com/watch?v=17ozSeGw-fY', duration: '4:29', genre_id: 3, artist_id: 2, album_id: 2, user_id: 6)
