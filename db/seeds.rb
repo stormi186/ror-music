@@ -75,7 +75,7 @@ Album.create(name: 'Teenage Dream', cover: 'https://i0.wp.com/musicawma.com/wp-c
 Track.create(name: 'California Gurls', youtubelink: 'https://www.youtube.com/watch?v=F57P9C4SAW4', duration: '3:55', genre_id: 2, artist_id: 5, album_id: 5, user_id: 6)
 Track.create(name: 'Teenage Dream', youtubelink: 'https://www.youtube.com/watch?v=98WtmW-lfeE', duration: '3:50', genre_id: 2, artist_id: 5, album_id: 5, user_id: 6)
 Track.create(name: 'Firework', youtubelink: 'https://www.youtube.com/watch?v=QGJuMBdaqIw', duration: '3:54', genre_id: 2, artist_id: 5, album_id: 5, user_id: 6)
-Track.create(name: 'ET', youtubelink: 'https://www.youtube.com/watch?v=t5Sd5c4o9UM', duration: '5:09', genre_id: 2, artist_id: 5, album_id: 5, user_id: 6)
+#Track.create(name: 'ET', youtubelink: 'https://www.youtube.com/watch?v=t5Sd5c4o9UM', duration: '5:09', genre_id: 2, artist_id: 5, album_id: 5, user_id: 6)
 #Track.create(name: 'Last Friday Night', youtubelink: 'https://www.youtube.com/watch?v=KlyXNRrsk4A', duration: '8:11', genre_id: 2, artist_id: 5, album_id: 5, user_id: 6)
-Track.create(name: 'The One That Got Away', youtubelink: 'https://www.youtube.com/watch?v=Ahha3Cqe_fk', duration: '4:51', genre_id: 2, artist_id: 5, album_id: 5, user_id: 6)
+#Track.create(name: 'The One That Got Away', youtubelink: 'https://www.youtube.com/watch?v=Ahha3Cqe_fk', duration: '4:51', genre_id: 2, artist_id: 5, album_id: 5, user_id: 6)
 
