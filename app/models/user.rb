@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 	attr_accessor :remember_token
-  before_save   :downcase_username
+  #before_save   :downcase_username
 
   ROLE_USER = 0
   ROLE_ADMIN = 1

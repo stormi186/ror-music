@@ -50,7 +50,7 @@ Track.create(name: 'We Found Love', youtubelink: 'https://www.youtube.com/watch?
 Track.create(name: 'Let\'s Go', youtubelink: 'https://www.youtube.com/watch?v=LYZ6gXWZfZM', duration: '4:07', genre_id: 3, artist_id: 2, album_id: 2, user_id: 6)
 Track.create(name: 'We\'ll Be Coming Back', youtubelink: 'https://www.youtube.com/watch?v=kPC_evpbwDM', duration: '4:08', genre_id: 3, artist_id: 2, album_id: 2, user_id: 6)
 Track.create(name: 'Sweet Nothing', youtubelink: 'https://www.youtube.com/watch?v=17ozSeGw-fY', duration: '4:29', genre_id: 3, artist_id: 2, album_id: 2, user_id: 6)
-Track.create(name: 'I Need Your Love', youtubelink: 'https://www.youtube.com/watch?v=AtKZKl7Bgu0', duration: '3:47', genre_id: 3, artist_id: 2, album_id: 2, user_id: 6)
+#Track.create(name: 'I Need Your Love', youtubelink: 'https://www.youtube.com/watch?v=AtKZKl7Bgu0', duration: '3:47', genre_id: 3, artist_id: 2, album_id: 2, user_id: 6)
 Track.create(name: 'Drinking From the Bottle', youtubelink: 'https://www.youtube.com/watch?v=uztCqjxrkjQ', duration: '5:34', genre_id: 3, artist_id: 2, album_id: 2, user_id: 6)
 Track.create(name: 'Thinking About You', youtubelink: 'https://www.youtube.com/watch?v=cl3b7dDBLpo', duration: '4:37', genre_id: 3, artist_id: 2, album_id: 2, user_id: 6)
 
