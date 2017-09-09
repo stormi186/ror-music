@@ -6,18 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(username: 'user1', email: 'user1@gmail.com', 
-						password: 'password1')
-User.create(username: 'user2', email: 'user2@gmail.com', 
-						password: 'password2')
-User.create(username: 'user3', email: 'user3@gmail.com', 
-						password: 'password3')
-User.create(username: 'admin1', email: 'admin1@gmail.com', 
-						password: 'adminadmin', role: 1)
-User.create(username: 'admin2', email: 'admin2@gmail.com', 
-						password: 'adminadmin', role: 1)
-User.create(username: 'superadmin', email: 'superadmin@gmail.com', 
-						password: 'superadmin', role: 2)
+User.create(username: 'user1', email: 'user1@gmail.com', password: 'password1')
+User.create(username: 'user2', email: 'user2@gmail.com', password: 'password2')
+User.create(username: 'user3', email: 'user3@gmail.com', password: 'password3')
+User.create(username: 'admin1', email: 'admin1@gmail.com', password: 'adminadmin', role: 1)
+User.create(username: 'admin2', email: 'admin2@gmail.com', password: 'adminadmin', role: 1)
+User.create(username: 'superadmin', email: 'superadmin@gmail.com', password: 'superadmin', role: 2)
 
 Genre.create(name: 'Rock', user_id: 6)
 Genre.create(name: 'Pop', user_id: 6)
@@ -47,10 +41,10 @@ Album.create(name: '18 Months', cover: 'http://d3cprjxvoejtmm.cloudfront.net/ima
 Track.create(name: 'Bounce', youtubelink: 'https://www.youtube.com/watch?v=ooZwmeUfuXg', duration: '3:51', genre_id: 3, artist_id: 2, album_id: 2, user_id: 6)
 Track.create(name: 'Feel So Close', youtubelink: 'https://www.youtube.com/watch?v=dGghkjpNCQ8', duration: '4:07', genre_id: 3, artist_id: 2, album_id: 2, user_id: 6)
 Track.create(name: 'We Found Love', youtubelink: 'https://www.youtube.com/watch?v=tg00YEETFzg', duration: '4:36', genre_id: 3, artist_id: 2, album_id: 2, user_id: 6)
-Track.create(name: 'Lets Go', youtubelink: 'https://www.youtube.com/watch?v=LYZ6gXWZfZM', duration: '4:07', genre_id: 3, artist_id: 2, album_id: 2, user_id: 6)
+#Track.create(name: 'Lets Go', youtubelink: 'https://www.youtube.com/watch?v=LYZ6gXWZfZM', duration: '4:07', genre_id: 3, artist_id: 2, album_id: 2, user_id: 6)
 Track.create(name: 'We will Be Coming Back', youtubelink: 'https://www.youtube.com/watch?v=kPC_evpbwDM', duration: '4:08', genre_id: 3, artist_id: 2, album_id: 2, user_id: 6)
 #Track.create(name: 'Sweet Nothing', youtubelink: 'https://www.youtube.com/watch?v=17ozSeGw-fY', duration: '4:29', genre_id: 3, artist_id: 2, album_id: 2, user_id: 6)
-Track.create(name: 'I Need Your Love', youtubelink: 'https://www.youtube.com/watch?v=AtKZKl7Bgu0', duration: '3:47', genre_id: 3, artist_id: 2, album_id: 2, user_id: 6)
+#Track.create(name: 'I Need Your Love', youtubelink: 'https://www.youtube.com/watch?v=AtKZKl7Bgu0', duration: '3:47', genre_id: 3, artist_id: 2, album_id: 2, user_id: 6)
 Track.create(name: 'Drinking From the Bottle', youtubelink: 'https://www.youtube.com/watch?v=uztCqjxrkjQ', duration: '5:34', genre_id: 3, artist_id: 2, album_id: 2, user_id: 6)
 Track.create(name: 'Thinking About You', youtubelink: 'https://www.youtube.com/watch?v=cl3b7dDBLpo', duration: '4:37', genre_id: 3, artist_id: 2, album_id: 2, user_id: 6)
 
