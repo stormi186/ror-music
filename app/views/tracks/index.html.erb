@@ -53,12 +53,14 @@
        	 <h3>Popular tracks</h3>
          <br>
       	</thead>
-      	<tbody>
+      	<%-# radi lokalno -%>
+      	<% if false %>
         	<% @top_tracks.each do |track| %>
   					<tr>
     					<td data-title="Name"><%= link_to track.name, track_path(track) %></td>
     					<td data-title="Artist"><%= link_to Artist.find(track.artist_id).name, artist_path(Artist.find(track.artist_id)) %></td>
   					</tr>
+					<% end %>
 					<% end %>
 				</tbody>
 			</table>
