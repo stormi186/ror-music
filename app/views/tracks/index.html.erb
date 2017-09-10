@@ -47,23 +47,23 @@
 				</tbody>
 			</table>
 		</div>
+		<%-# radi lokalno -%>
+    <% if false %>
   	<div class="table-responsive-vertical tbl-top">
   		<table class="table table-hover">
       	<thead>
        	 <h3>Popular tracks</h3>
          <br>
       	</thead>
-      	<%-# radi lokalno -%>
-      	<% if false %>
         	<% @top_tracks.each do |track| %>
   					<tr>
     					<td data-title="Name"><%= link_to track.name, track_path(track) %></td>
     					<td data-title="Artist"><%= link_to Artist.find(track.artist_id).name, artist_path(Artist.find(track.artist_id)) %></td>
   					</tr>
 					<% end %>
-					<% end %>
 				</tbody>
 			</table>
 		</div>
+		<% end %>
 	</div>
 </div>
